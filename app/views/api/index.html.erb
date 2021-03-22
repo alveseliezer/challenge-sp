@@ -1,2 +1,8 @@
-<h1>Api#index</h1>
-<p>Find me in app/views/api/index.html.erb</p>
+<div class="container">
+    <h1>Initial Page</h1>
+    <hr>
+
+    <%= link_to "Repositories", api_repositories_path, :class=> 'btn btn-warning' %>
+
+    <%= link_to "Users", api_users_path, :class=> 'btn btn-warning' %>
+</div>

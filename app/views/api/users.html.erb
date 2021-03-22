@@ -1,2 +1,27 @@
-<h1>Api#users</h1>
-<p>Find me in app/views/api/users.html.erb</p>
+<div class="container">
+    <h1>List Users</h1>
+    <%= link_to "Home", root_path, :class=> 'btn btn-success' %>
+    <div class="container">
+        <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Login</th>
+                <th>URL</th>
+            </tr>
+            </thead>
+
+            <tbody>
+                <% @list2.each do |ls| %>
+                    <tr>
+                        <td> <%= ls["id"]  %></td>
+                        <td> <%= ls["login"]  %></td>
+                        <td> <%= ls["url"]  %></td>  
+                        <td><%= link_to 'Show', api_path(ls["login"]), :class=>'btn btn-outline-success'  %></td>   
+                           
+                    </tr>
+            <%end%>
+            </tbody>
+        </table>
+    </div>
+</div>
