@@ -39,7 +39,11 @@ class ApiController < ApplicationController
       format.html 
       format.json 
     end
-   #client = Octokit::Client.new :access_token => ENV['MY_CODE']   
+    
+    @public_repositories = HTTParty.get "#{url}/#{params[:id]}/#{"repos"}?client_id=#{client_id}&client_secret=#{client_secret}"
+    
+    #@list_repos = HTTParty.get "#{@public_repositories}?client_id=#{client_id}&client_secret=#{client_secret}"
+    #client = Octokit::Client.new :access_token => ENV['MY_CODE']   
   
    #@user  = client.search_users("#{params[:id]}?client_id=#{client_id}")
   end

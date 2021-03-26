@@ -17,20 +17,45 @@
               <p> 
                 <strong>Blog:</strong>
                 <%= @user["blog"] %>
-               </p>
-                <p> 
-                <strong>Repositories Publics:</strong>
-                <%= @user["public_repos"] %>
-               </p>
+               </p>               
                 <p> 
                 <strong>Followers:</strong>
                 <%= @user["followers"] %>
                </p>
                  <strong>Following:</strong>
                 <%= @user["following"] %>
+               </p>
+               <hr>
+                <p> 
+                <strong>Repositories Publics:</strong>
+                <%= @user["public_repos"] %>
+                <%= %>
                </p>             
              
               <%= link_to 'Voltar', api_users_path, :class=>'btn btn-outline-dark' %> |
             
   </div>
+</div>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>name</th>
+                <th>URL</th>
+                
+            </tr>
+            </thead>
+
+            <tbody>
+                <% @public_repositories.each do |ls| %>
+                    <tr>
+                        <td> <%= ls["id"]  %></td>
+                        <td> <%= ls["name"]  %></td>
+                        <td> <%= ls["url"]  %></td>  
+                           
+                    </tr>
+            <%end%>
+            </tbody>
+        </table>
 </div>
