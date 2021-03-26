@@ -1,6 +1,8 @@
 <div class="container">
     <h1>Repositories</h1>
-    <%= link_to "Home", root_path, :class=> 'btn btn-success' %>
+    <%= link_to "Home", root_path, :class=> 'btn btn-success' %> 
+    <br>
+    
         <div class="container">
             <table class="table">
                 <thead>
@@ -13,15 +15,25 @@
 
                 <tbody>
                 
-                    <% @repo.each do |ls| %>
+                    <% @repo.items.each do |ls| %>
                         <tr>
-                            <td> <%= ls["id"]  %></td>
-                            <td> <%= ls["name"]  %></td>
-                            <td> <%= ls["html_url"]  %></td>          
+                            <td> <%= ls['id']%></td>
+                            <td> <%= ls['login']%></td>
+                            <td> <%= ls['url']%></td>          
                         </tr>
                 <%end%>
                 
                 </tbody>
             </table>
+              <div class="pg_info">
+                Actual Page:<%=@page %> | Total Pages:<%=@number_of_pages%>
+              </div>
         </div>
+    <% if @page.between?(1, @number_of_pages.to_i)%>         
+        <%= link_to "Next", api_repositories_path(page: @page + 1), :class=> 'btn btn-outline-info' %> | <%= link_to "Prev", api_repositories_path(page: @page - 1), :class=> 'btn btn-outline-info' %>    
+    
+    <% else %>         
+        <%= link_to "Next", api_repositories_path, :class=> 'btn btn-outline-info' %> | <%= link_to "Prev", api_repositories_path, :class=> 'btn btn-outline-info' %>
+    <%end%>
+    
 </div>

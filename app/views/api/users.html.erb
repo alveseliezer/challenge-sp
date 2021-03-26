@@ -8,20 +8,31 @@
                 <th>Id</th>
                 <th>Login</th>
                 <th>URL</th>
+                <th>Show</th>
             </tr>
             </thead>
 
             <tbody>
-                <% @list2.each do |ls| %>
+                <% @list_users.items.each do |ls| %>
                     <tr>
                         <td> <%= ls["id"]  %></td>
                         <td> <%= ls["login"]  %></td>
                         <td> <%= ls["url"]  %></td>  
-                        <td><%= link_to 'Show', api_path(ls["login"]), :class=>'btn btn-outline-success'  %></td>   
+                        <td><%= link_to 'Show', api_show_path(ls["login"]), :class=>'btn btn-outline-success'  %></td>   
                            
                     </tr>
             <%end%>
             </tbody>
         </table>
+        <div class="pg_info">
+            Actual Page:<%=@page %> | Total Pages:<%=@number_of_pages%>
+        </div>
     </div>
+      <% if @page.between?(1, @number_of_pages.to_i)%>         
+        <%= link_to "Next", api_users_path(page: @page + 1), :class=> 'btn btn-outline-info' %> | <%= link_to "Prev", api_users_path(page: @page - 1), :class=> 'btn btn-outline-info' %>    
+    
+    <% else %>         
+        <%= link_to "Next", api_users_path, :class=> 'btn btn-outline-info' %> | <%= link_to "Prev", api_users_path, :class=> 'btn btn-outline-info' %>
+    <%end%>
+ 
 </div>
