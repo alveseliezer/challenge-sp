@@ -22,8 +22,13 @@
                 <strong>Followers:</strong>
                 <%= @user["followers"] %>
                </p>
+               <p>
                  <strong>Following:</strong>
                 <%= @user["following"] %>
+               </p>
+                <p>
+                 <strong>Login Creation:</strong>
+                <%= @user["created_at"] %>
                </p>
                <hr>
                 <p> 
@@ -40,6 +45,7 @@
     <table class="table">
         <thead>
             <tr>
+                <th>Id</th>
                 <th>Repositori Name</th>
                 <th>URL</th>
                 
@@ -48,7 +54,8 @@
 
             <tbody>
                 <% @public_repositories.each do |ls| %>
-                    <tr>                        
+                    <tr>   
+                        <td> <%= ls["id"] %></td>                     
                         <td> <%= ls["name"] %></td>
                         <td> <%= ls["url"]  %></td>  
                            
