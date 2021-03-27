@@ -7,7 +7,7 @@
                 <%= @user["id"] %>
               </p>
               <p>  
-                <strong>Tipo Serviço:</strong>
+                <strong>Login:</strong>
                 <%= @user["login"] %>
               </p>
               <p> 
@@ -40,8 +40,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>name</th>
+                <th>Repositori Name</th>
                 <th>URL</th>
                 
             </tr>
@@ -49,9 +48,8 @@
 
             <tbody>
                 <% @public_repositories.each do |ls| %>
-                    <tr>
-                        <td> <%= ls["id"]  %></td>
-                        <td> <%= ls["name"]  %></td>
+                    <tr>                        
+                        <td> <%= ls["name"] %></td>
                         <td> <%= ls["url"]  %></td>  
                            
                     </tr>

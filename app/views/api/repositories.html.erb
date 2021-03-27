@@ -30,10 +30,10 @@
               </div>
         </div>
     <% if @page.between?(1, @number_of_pages.to_i)%>         
-        <%= link_to "Next", api_repositories_path(page: @page + 1), :class=> 'btn btn-outline-info' %> | <%= link_to "Prev", api_repositories_path(page: @page - 1), :class=> 'btn btn-outline-info' %>    
+         <%= link_to "Prev", api_repositories_path(page: @page - 1), :class=> 'btn btn-outline-info' %> | <%= link_to "Next", api_repositories_path(page: @page + 1), :class=> 'btn btn-outline-info' %>   
     
     <% else %>         
-        <%= link_to "Next", api_repositories_path, :class=> 'btn btn-outline-info' %> | <%= link_to "Prev", api_repositories_path, :class=> 'btn btn-outline-info' %>
+        <%= link_to "Prev", api_repositories_path, :class=> 'btn btn-outline-info' %> | <%= link_to "Next", api_repositories_path, :class=> 'btn btn-outline-info' %>
     <%end%>
     
 </div>
